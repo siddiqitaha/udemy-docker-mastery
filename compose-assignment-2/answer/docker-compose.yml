@@ -13,10 +13,10 @@ services:
  
   postgres:
     image: postgres:12.1
+    environment:
+      - POSTGRES_PASSWORD_FILE= /run/secrets/psql-pw
     secrets:
       - psql-pw
-    environment:
-      - POSTGRES_PASSWORD_FILE=/run/secrets/psql-pw
     volumes:
       - drupal-data:/var/lib/postgresql/data
 
